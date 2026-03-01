@@ -40,15 +40,25 @@
 - ≠ personalization (recommendation systems)
 
 ### 2.2 Operational Definition
-> *From ICML abstract: "structural sedimentation of history and meaningful constraints"*  
-> [EXPAND — need precise philosophical grounding]
 
-### 2.3 The 2D Framework
-- X-axis: Generality (task breadth, capability)
-- Y-axis: Individuality (structural sedimentation of historical trajectory, meaningful constraints, subjectivity)
-- Orthogonality: Why these two axes are **independent** — improving one does not entail improvement in the other
+We define individuality as the **structural sedimentation of historical trajectory and meaningful constraints**: the process by which an agent's past — its particular sequence of encounters, decisions, and commitments — becomes encoded not merely as retrievable data but as architectural modification that actively shapes, and limits, what the agent can coherently do next. The word *sedimentation* is deliberate. Just as geological strata are not a record sitting atop the rock but are the rock, an individuated agent's history is not a memory store sitting atop a substrate — it is the substrate, transformed.
 
-*[DRAFT NEEDED — writing agent]*  
+This definition carries two load-bearing components. *Historical trajectory* refers to the specific, non-exchangeable path the agent has taken through its environment: the problems it has chosen to engage with, the commitments it has made, the contradictions it has had to resolve. *Meaningful constraints* refers to the resulting narrowing of the agent's possibility space — not as external limitation but as constitutive self-definition. A literary critic who has spent thirty years reading Victorian fiction is not merely someone who *has* that knowledge; they are someone for whom certain interpretations are now available and others genuinely closed. Their trajectory has constrained them into a particular way of seeing.
+
+This distinguishes individuality sharply from three constructs it is often confused with. *Personality* is a statistical disposition that can, in principle, be specified from the outside and instantiated in any competent system; it requires no history. *Persistent memory* is a retrieval mechanism — a log that is consulted but does not transform the consulting agent. *Personalization* is adaptation to user preferences, driven by external signal rather than internal sedimentation. An individuated agent is not one that *remembers* who it has been; it is one that *is shaped* by who it has been, in ways that cannot be fully reversed or reset.
+
+### 2.3 The 2D Framework and the Orthogonality Claim
+
+Current AGI research implicitly maps intelligence onto a single axis. Call it the generality axis: the dimension along which systems are ranked by breadth of competence, transfer across domains, and performance on novel tasks. Benchmarks from ARC-AGI to MMLU to the "Levels of AGI" taxonomy proposed by Morris et al. are all instruments for measuring position on this axis. Progress is real and remarkable. But it is progress along one coordinate in a space that has at least two.
+
+The second axis is individuality as defined above: the degree to which a system is constituted by its specific historical trajectory. Plot any current AI system on this 2D plane and a striking pattern emerges. Systems cluster in a thin band near the bottom — they may occupy very different positions on the generality axis, from narrow classifiers to frontier language models, but they are uniformly near zero on the individuality axis. They have no particular histories that constrain them; any instance is interchangeable with any other.
+
+The critical claim of this paper is that these two axes are **orthogonal** — that movement along one does not entail, or even reliably correlate with, movement along the other. This is not obvious, and it requires argument.
+
+Consider a thought experiment. Suppose we take a frontier language model and scale it by an order of magnitude — more parameters, more compute, more data. Its generality increases: it handles more tasks with greater facility. Does its individuality increase? The answer is no, for a structural reason. Individuality requires a specific trajectory, but this model's "trajectory" is training on a distribution sampled from all of human text. Its history is, by design, everyone's history — and therefore no one's. Scaling that history makes it a better approximation of the average, not the particular. A system that has processed everything has, in the relevant sense, experienced nothing.
+
+The orthogonality argument can also be run in the other direction. A system can possess high individuality with limited generality. A master calligrapher trained in a single tradition, or an AI agent that has spent a year embedded in a single community, learning its idioms and commitments, may be deeply individuated — shaped by that particular history in ways that constrain future behavior — while remaining highly specialized. Generality and individuality vary independently. They require separate measurement and, we will argue, separate cultivation.
+
 *[LITERATURE NEEDED — see Section 2 lit review below — literature agent]*
 
 ---
@@ -105,9 +115,12 @@ Options:
 *[DRAFT NEEDED]*
 
 ### 5.3 "Individuality Is Just Conditioning / In-Context Learning" ⚠️ HARDEST OBJECTION
-- Why shallow conditioning ≠ structural individuality
-- Why conversation history ≠ sedimented trajectory
-*[DRAFT NEEDED — writing agent]*
+
+The most technically sophisticated objection runs as follows: give a language model a rich system prompt specifying its values and background, append a long conversation history, and apply extended context windows or retrieval-augmented memory — and you have individuality. The system now "knows" its past and acts accordingly. What more could individuality require?
+
+This objection conflates two fundamentally different relationships between an agent and its history: *retrieval* and *constitution*. When a language model reads its conversation history, that history is input — text that the model processes at inference time, no different in kind from a user's query. The model that reads its history is not *shaped* by that history; it is *informed* by it, in exactly the way it would be informed by reading anyone else's history. Remove the context window and the system reverts, fully and completely, to its prior state. Its "history" has left no trace in the weights. It has not been constrained; it has merely been prompted.
+
+Structural sedimentation requires the opposite: that the history become part of the agent's architecture — that it close off certain possibilities and open others in ways that persist independently of what is currently in context. A human who spent three years embedded in a particular community cannot un-have that experience. It has reorganized their expectations, their intuitions, their commitments. It constrains them even when they are not thinking about it. No context window achieves this. Conditioning that is merely retrieved is, in the end, just a very long prompt — and a prompt, however long, is not a past.
 
 ---
 

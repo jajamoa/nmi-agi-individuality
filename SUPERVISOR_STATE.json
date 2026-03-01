@@ -1,0 +1,9 @@
+{
+  "started": "now",
+  "checkCount": 0,
+  "agents": {
+    "literature-agent": "agent:assistant:subagent:4c61e560-ef84-4204-8101-3cdac7b3816e",
+    "writing-agent": "agent:assistant:subagent:4b95e586-b22d-43a9-965c-5c4423738439"
+  },
+  "lastCheck": null
+}
